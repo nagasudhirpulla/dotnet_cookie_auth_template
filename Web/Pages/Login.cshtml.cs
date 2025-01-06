@@ -18,9 +18,14 @@ namespace Web.Pages
         [BindProperty]
         public string? Password { get; set; }
 
-        public void OnGet()
+        public ActionResult OnGet()
         {
-            // TODO - check if user is already logged in
+            // check if user is already logged in
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage(nameof(Index));
+            }
+            return Page();
         }
         public async Task<ActionResult> OnPostAsync()
         {

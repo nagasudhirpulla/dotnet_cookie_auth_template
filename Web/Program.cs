@@ -34,7 +34,7 @@ app.UseRouting();
 // configure the request pipeline to use authentication while processing requests
 //
 app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapRazorPages();
 
