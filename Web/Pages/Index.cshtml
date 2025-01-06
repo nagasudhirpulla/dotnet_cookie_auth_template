@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row justify-content-center align-items-center">
+    <div class="col col-md-6">
+        <p>
+            Color Scheme is @Model.ColorScheme
+        </p>
+        <p>Last Visited - @HttpContext.Request.Cookies["LastVisited"]</p>
+    </div>
+</div>
+
+<div class="row justify-content-center align-items-center">
+    <div class="col col-md-6">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="ColorScheme" class="form-label"></label>
+                <select asp-for="ColorScheme" class="form-control">
+                    <option value="dark">Dark Mode</option>
+                    <option value="light">Light Mode</option>
+                    <option value="none">Clear cookie</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success mb-1">Update Cookie</button>
+        </form>
+    </div>
+</div>
